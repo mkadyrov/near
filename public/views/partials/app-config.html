@@ -1,0 +1,63 @@
+<md-dialog flex="100" flex-gt-xs="50" aria-label="App Config dialog">
+
+  <form name="form" role="form" novalidate>
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{ 'APP_CONFIG' | translate }}</h2>
+        <span flex></span>
+        <ng-md-icon aria-label="Close dialog" icon="close" class="icon-close" ng-click="hide()">
+        </ng-md-icon>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+
+      <md-content layout="column" layout-padding>
+
+        <p class="md-title">{{ 'MOBILE_APP_CONFIG' | translate }}</p>
+        <p class="md-body-1 no-margin">{{ 'ABOUT' | translate }}</p>
+        <trix-editor class="margin-bottom" angular-trix ng-model="obj.about.description">
+        </trix-editor>
+        <md-input-container flex>
+          <label>{{ 'CONTACT_EMAIL' | translate }}</label>
+          <input placeholder name="email" type="text" ng-model="obj.about.email">
+        </md-input-container>
+        <md-input-container flex>
+          <label>{{ 'CONTACT_PHONE' | translate }}</label>
+          <input placeholder name="phone" type="text" ng-model="obj.about.phone">
+        </md-input-container>
+        <md-input-container flex>
+          <label>{{ 'FACEBOOK' | translate }}</label>
+          <input placeholder name="facebook" type="text" ng-model="obj.about.facebook">
+        </md-input-container>
+        <md-input-container flex>
+          <label>{{ 'INSTAGRAM' | translate }}</label>
+          <input placeholder name="instagram" type="text" ng-model="obj.about.instagram">
+        </md-input-container>
+        <md-input-container flex>
+          <label>{{ 'YOUTUBE' | translate }}</label>
+          <input placeholder name="youtube" type="text" ng-model="obj.about.youtube">
+        </md-input-container>
+
+        <p class="md-title">{{ 'EMAIL_SETTINGS' | translate }}</p>
+
+        <md-input-container>
+          <label>{{ 'EMAIL_FOR_NOTIFICATIONS' | translate }}</label>
+          <input type="email" name="emailAddress" placeholder ng-model="obj.email.addressForNotifications">
+        </md-input-container>
+
+      </md-content>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="hide()">
+        {{ 'CLOSE' | translate }}
+      </md-button>
+      <span flex></span>
+      <md-button type="submit" class="md-raised md-primary" ng-click="onSave()">
+        {{ !isSaving ? ('SAVE' | translate) : ('SAVING' | translate) }}
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
